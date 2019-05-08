@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
+import Auth from "./Auth";
 class ProtectedRoute extends Component {
   state = {};
   render() {
     // const currentUser = auth.getCurrentUser(); // TODO
-    const currentUser = false;
+    const currentUser = Auth.getUserID();
     const { component: Component, render, ...rest } = this.props;
 
     return (

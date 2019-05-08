@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import MainPage from "./components/MainPage";
 import "./App.css";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/common/ProtectedRoute";
 
 function App() {
   return (
