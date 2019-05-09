@@ -9,9 +9,11 @@ import ProtectedRoute from "./components/common/ProtectedRoute";
 function App() {
   return (
     <div className="App">
-      <Route path="/login" component={LoginPage} />
-      <ProtectedRoute path="/logout" component={Logout} />
-      <ProtectedRoute path="/" component={MainPage} />
+      <Switch>
+        <Route path="/login" component={LoginPage} />
+        <Route path="/logout" component={Logout} />
+        <ProtectedRoute path="/" component={MainPage} />
+      </Switch>
     </div>
   );
 }

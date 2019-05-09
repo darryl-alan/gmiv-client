@@ -52,11 +52,16 @@ const getMenu = () => {
   }
 };
 
+const logout = () => {
+  localStorage.clear();
+};
+
 export default {
   storeToken,
   getToken,
   hasPrivilege,
   getUserID,
   getVendorCode,
-  getMenu
+  getMenu,
+  logout
 };

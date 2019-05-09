@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import Auth from "./common/Auth";
 
 class Logout extends Component {
   state = {};
   render() {
-    return null;
+    Auth.logout();
+    return <Redirect to="/" />;
   }
 }
 
