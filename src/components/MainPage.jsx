@@ -38,6 +38,7 @@ import "../asset_theme/global/css/bootstrap-extend.min.css";
 class MainPage extends Component {
   state = {};
   render() {
+    document.body.className = document.body.className.replace("login-page", ""); // to fix the login page CSS clashing with the rest
     return (
       <React.Fragment>
         <TopNav />

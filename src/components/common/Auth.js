@@ -25,33 +25,37 @@ const hasPrivilege = (MenuID, Action = "R") => {
   }
 };
 
-const getUserID = () => {
+const get = key => {
   const jwt = getToken();
   try {
-    return jwtDecode(jwt).UserID;
+    return jwtDecode(jwt)[key];
   } catch (e) {
     return null;
   }
+};
+
+const getUserID = () => {
+  return get("UserID");
 };
 
 const getVendorCode = () => {
-  const jwt = getToken();
-  try {
-    return jwtDecode(jwt).VendorCode;
-  } catch (e) {
-    return null;
-  }
+  return get("VendorCode");
 };
 
 const getMenu = () => {
-  const jwt = getToken();
-  try {
-    return jwtDecode(jwt).Menu;
-  } catch (e) {
-    return null;
-  }
+  return get("Menu");
 };
 
+const getUserGroupID = () => {
+  return get("UserGroupID");
+};
+
+const getUserGroup = () => {
+  return get("UserGroup");
+};
+const getUserName = () => {
+  return get("UserName");
+};
 const logout = () => {
   localStorage.clear();
 };
@@ -63,5 +67,8 @@ export default {
   getUserID,
   getVendorCode,
   getMenu,
-  logout
+  logout,
+  getUserGroupID,
+  getUserGroup,
+  getUserName
 };
