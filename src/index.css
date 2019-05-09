@@ -379,3 +379,11 @@ body {
   background: #bbbbbb;
   color: rgba(64, 64, 64, 0.9);
 }
+
+#content {
+  z-index: 9999;
+}
+
+.navbar-fixed-top .nav {
+  padding-top: 0 !important;
+}

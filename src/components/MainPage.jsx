@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Switch } from "react-router-dom";
 import TopNav from "./Main/TopNav";
 import Menu from "./Main/Menu";
+import ProtectedRoute from "./common/ProtectedRoute";
+import Home from "./Home/Home";
 
 import "../asset_theme/global/css/bootstrap.min.css";
 import "../asset_theme/materialadmin.css";
@@ -40,7 +42,9 @@ class MainPage extends Component {
       <React.Fragment>
         <TopNav />
         <div id="content">
-          <Switch />
+          <Switch>
+            <ProtectedRoute path="/" exact component={Home} />
+          </Switch>
         </div>
         <Menu location={this.props.location} />
       </React.Fragment>

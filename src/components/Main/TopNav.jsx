@@ -5,8 +5,12 @@ import FakeLink from "../common/FakeLink";
 import avatar from "../../asset_theme/global/portraits/person.png";
 import loadingImg from "../../asset/KendoUI/styles/Default/loading-image.gif";
 class TopNav extends Component {
-  state = {};
+  state = { dropdownOpen: false };
   componentDidMount() {
+    this.loadNotifications();
+  }
+
+  loadNotifications = () => {
     // TODO
     // $(function(){
     // 	var $countDNError = $("#countDNError");
@@ -32,7 +36,11 @@ class TopNav extends Component {
     // 		console.log(jqXHR);
     // 	});
     // });
-  }
+  };
+
+  handleToggleDropDown = e => {
+    this.setState({ dropdownOpen: !this.state.dropdownOpen });
+  };
 
   handleToggleMenubar = e => {
     let classes = document.body.className.split(/\s+/);
@@ -49,6 +57,7 @@ class TopNav extends Component {
       <nav
         className="site-navbar navbar navbar-inverse navbar-fixed-top navbar-mega"
         role="navigation"
+        style={{ height: "70px" }}
       >
         <div className="navbar-container container-fluid">
           <div
@@ -100,21 +109,29 @@ class TopNav extends Component {
                   </a>
                 </li>
               ) : null}
-              <li className="dropdown">
-                <a
+              <li
+                className={
+                  "dropdown" + (this.state.dropdownOpen ? " open" : "")
+                }
+              >
+                <FakeLink
                   className="navbar-avatar dropdown-toggle"
                   data-toggle="dropdown"
-                  href="#"
-                  aria-expanded="false"
+                  onClick={this.handleToggleDropDown}
                   data-animation="scale-up"
+                  style={{ paddingTop: "10px" }}
                   role="button"
                 >
                   <span className="avatar avatar-online">
                     <img src={avatar} />
                     <i />
                   </span>
-                </a>
-                <ul className="dropdown-menu" role="menu">
+                </FakeLink>
+                <ul
+                  className="dropdown-menu"
+                  role="menu"
+                  style={{ marginTop: 0 }}
+                >
                   <li role="presentation">
                     <Link to="/myaccount">
                       <i className="icon md-account" />

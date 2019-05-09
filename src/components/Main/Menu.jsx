@@ -59,7 +59,7 @@ class Menu extends Component {
         }
         return (
           <li key={item.controller} className={"site-menu-item " + active}>
-            <Link to={"/" + item.controller.toLowerCase()}>
+            <Link to={"/" + item.controller.toLowerCase().replace("home", "")}>
               {item.icon ? (
                 <i className={"site-menu-icon " + item.icon} />
               ) : null}
