@@ -31,7 +31,7 @@ class LoginForm extends Component {
       this.props.history.push("/");
     } catch (e) {
       if (e.message) {
-        this.state({ error: e.message });
+        this.setState({ error: e.message });
       }
     }
   };

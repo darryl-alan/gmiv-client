@@ -34,9 +34,29 @@ const getUserID = () => {
   }
 };
 
+const getVendorCode = () => {
+  const jwt = getToken();
+  try {
+    return jwtDecode(jwt).VendorCode;
+  } catch (e) {
+    return null;
+  }
+};
+
+const getMenu = () => {
+  const jwt = getToken();
+  try {
+    return jwtDecode(jwt).Menu;
+  } catch (e) {
+    return null;
+  }
+};
+
 export default {
   storeToken,
   getToken,
   hasPrivilege,
-  getUserID
+  getUserID,
+  getVendorCode,
+  getMenu
 };

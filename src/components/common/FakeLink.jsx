@@ -3,20 +3,25 @@ import React, { Component } from "react";
 class FakeLink extends Component {
   state = {};
   render() {
+    const { classNames, scrollTo, children, onClick, ...rest } = this.props;
     return (
       <a
-        className={"button-link " + (this.props.className || "")}
+        {...rest}
+        className={"button-link " + (classNames || "")}
         onClick={() => {
-          if (this.props.scrollTo) {
-            document.getElementById(this.props.scrollTo).scrollIntoView({
+          if (scrollTo) {
+            document.getElementById(scrollTo).scrollIntoView({
               behavior: "smooth",
               block: "end",
               inline: "nearest"
             });
           }
+          if (onClick) {
+            onClick();
+          }
         }}
       >
-        {this.props.children}
+        {children}
       </a>
     );
   }

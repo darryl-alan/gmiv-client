@@ -16,3 +16,366 @@ code {
 .button-link {
   cursor: pointer;
 }
+
+.swal2-container {
+  z-index: 1701;
+}
+.k-calendar {
+  font-size: 12px;
+}
+
+.k-treeview span.k-in {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.k-tooltip {
+  font-size: 8pt;
+}
+
+.k-grid tbody .k-button {
+  min-width: 12px;
+  width: 30px;
+}
+.k-chart.small-chart {
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+}
+
+.k-chart.small-chart-list {
+  display: inline-block;
+  height: 320px;
+}
+
+.k-grid .k-grid-header {
+  font-size: 11px;
+}
+
+.k-readonly {
+  color: gray;
+}
+
+.k-pager-info.k-label {
+  font-size: 8pt;
+}
+
+.k-pager-numbers {
+  font-size: 8pt;
+}
+
+.k-textbox {
+  font-size: 8pt;
+}
+
+.k-grid-pager {
+  font-size: 8pt;
+}
+
+.k-grid table tr:hover {
+  background: #ffb76b; /* Old browsers */
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmYjc2YiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmE3M2QiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmY3YzAwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmN2YwNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+  background: -moz-linear-gradient(
+    top,
+    #ffb76b 0%,
+    #ffa73d 100%,
+    #ff7c00 100%,
+    #ff7f04 100%
+  ); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #ffb76b),
+    color-stop(100%, #ffa73d),
+    color-stop(100%, #ff7c00),
+    color-stop(100%, #ff7f04)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #ffb76b 0%,
+    #ffa73d 100%,
+    #ff7c00 100%,
+    #ff7f04 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #ffb76b 0%,
+    #ffa73d 100%,
+    #ff7c00 100%,
+    #ff7f04 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(
+    top,
+    #ffb76b 0%,
+    #ffa73d 100%,
+    #ff7c00 100%,
+    #ff7f04 100%
+  ); /* IE10+ */
+  background: linear-gradient(
+    to bottom,
+    #ffb76b 0%,
+    #ffa73d 100%,
+    #ff7c00 100%,
+    #ff7f04 100%
+  ); /* W3C */
+  cursor: pointer;
+}
+.k-grid table tr {
+  height: 30px;
+}
+
+.k-pager-sizes {
+  font-size: 11px;
+}
+
+.k-grid-content > table > tbody > tr {
+  font-size: 11px;
+}
+
+.k-window-titlebar.k-header {
+  background: #495f75; /*#0B610B; set background to the titlebar*/
+  color: white; /*set color to the titlebar*/
+  font-size: 11px;
+  font-weight: bold; /*set font-weight to the titlebar*/
+}
+
+.k-invalid-msg {
+  border: 1px solid #ff0000;
+  display: none !important;
+}
+
+.k-input {
+  font-size: 8pt !important;
+}
+
+.k-dropdown-wrap .k-input,
+.k-numeric-wrap .k-input,
+.k-picker-wrap .k-input {
+  height: 23px;
+}
+
+.k-picker-wrap .k-icon {
+  margin-top: 5px;
+}
+
+.k-window {
+  width: 400px;
+}
+
+.k-button {
+  font-size: 11px;
+  width: auto;
+}
+
+.k-grid tbody .k-button {
+  font-size: 11px;
+  width: auto;
+}
+
+.k-state-hover .movie-template a,
+.movie-template a:hover {
+  color: #ffffff;
+}
+
+#photo {
+  overflow: hidden;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+td.special {
+  border: 2px double Red;
+}
+input[type="email"] {
+  font-size: 9pt !important;
+}
+
+input[type="text"]:not(.input-lg) {
+  font-size: 9pt !important;
+}
+
+textarea {
+  font-size: 9pt !important;
+}
+
+.customClass {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.customClass_Red {
+  background-color: #feabba;
+  color: black;
+}
+
+.customClass_Yellow {
+  background-color: #ffff66;
+  color: black;
+}
+
+.customClass_BlueLight {
+  background-color: #b3f0ff;
+  color: black;
+}
+
+.customClass_Green {
+  background-color: #ccffcc;
+  color: black;
+}
+
+.customClass_RedStrong {
+  background-color: #fd5b78;
+  color: black;
+}
+
+.customClass_Grey {
+  background-color: #f5f5f5;
+  color: black;
+}
+
+.customClass_GreyStrong {
+  background-color: #e3e3e3;
+  color: black;
+}
+
+.customClass_Blue {
+  background-color: #99c5f0;
+  color: black;
+}
+
+.customClass_BlueStrong {
+  background-color: #00bfff;
+  color: black;
+}
+
+.movie-template img {
+  float: left;
+  margin: 0 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.movie-template p {
+  margin: 3px 0 0;
+}
+
+.movie-template h3 {
+  margin: 5px 0 0;
+  font-size: 12px;
+}
+
+.movie-template a {
+  color: #ff0000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.km-print:after,
+.km-print:before {
+  content: "\e20c ";
+  width: 16px;
+  height: 17px;
+  padding: 2px;
+}
+
+.grid_shadows {
+  box-shadow: 1px 1px 5px #888888;
+}
+
+.k-panelbar > .k-item > .k-link {
+  font-family: "Courier New";
+  font-size: 12px;
+}
+
+ul.k-panelbar .k-group .k-link {
+  font-family: "Courier New";
+  font-size: 12px;
+}
+
+.k-scheduler-footer {
+  /* make them invisible */
+  display: none;
+
+  /* prevent height and paddings from influencing the size calculations */
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#scheduler {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  position: absolute;
+}
+
+.btn-xs {
+  padding: 1px 1px;
+}
+
+.notepad {
+  overflow: auto;
+}
+
+.notepad:focus {
+  outline: none;
+}
+
+.k-grid {
+  width: 99%;
+  margin: auto;
+}
+
+.k-dirty {
+  display: none;
+}
+
+.k-grid:not(.grid-dynamic-size) {
+  height: 85vh;
+}
+
+.photo_product {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.icon_shop {
+  font-size: 16px;
+}
+
+div.k-popup .k-item {
+  font: 12px Bold Arial, Helvetica, sans-serif;
+}
+body {
+  background-color: #fff;
+  overflow-y: hidden;
+}
+
+.k-filename {
+  max-width: none;
+}
+.k-file-name {
+  margin-right: 10px;
+}
+
+.site-menu-icon {
+  font-size: 20px;
+}
+.site-menu-item {
+  text-align: left;
+}
+
+.site-menu-item.has-sub.active .site-menu-item:not(.active) {
+  background: #bbbbbb;
+  color: rgba(64, 64, 64, 0.9);
+}

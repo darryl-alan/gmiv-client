@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face
+{
+font-family: Font1;
+src: url('Dancing Script.ttf');
+}
+@font-face
+{
+font-family: Font2;
+src: url('AftaSansThin-Regular.otf');
+}
+@font-face
+{
+font-family: Font3;
+src: url('AlegreyaSC-Regular.otf');
+}
+@font-face
+{
+font-family: Font4;
+src: url('calibri.ttf');
+}

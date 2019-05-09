@@ -4,6 +4,12 @@
   "private": true,
   "homepage": "http://localhost/prj/GMIV",
   "dependencies": {
+    "@progress/kendo-data-query": "^1.5.1",
+    "@progress/kendo-react-dateinputs": "^2.10.0",
+    "@progress/kendo-react-dropdowns": "^2.10.0",
+    "@progress/kendo-react-grid": "^2.10.0",
+    "@progress/kendo-react-inputs": "^2.10.0",
+    "@progress/kendo-react-intl": "^2.10.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "jwt-decode": "^2.2.0",

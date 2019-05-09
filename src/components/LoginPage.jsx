@@ -55,7 +55,7 @@ class LoginPage extends Component {
         <div id="page-content" className="index-page">
           <RegistrationForm />
           <BPIRegistrationForm />
-          <LoginForm />
+          <LoginForm history={this.props.history} />
         </div>
       </React.Fragment>
     );
