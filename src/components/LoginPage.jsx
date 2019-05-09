@@ -14,6 +14,7 @@ import Auth from "./common/Auth";
 class LoginPage extends Component {
   state = {};
   render() {
+    document.body.className += " login-page"; // to fix the login page CSS clashing with the rest
     const UserID = Auth.getUserID();
     return UserID ? (
       <Redirect to="/" />
