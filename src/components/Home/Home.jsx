@@ -443,7 +443,10 @@ class Home extends Component {
                                                                 <div data-role="container">
                                                                     <div data-role="content">
                                                                         {this.state.news.map(
-                                                                            e => {
+                                                                            (
+                                                                                e,
+                                                                                i
+                                                                            ) => {
                                                                                 const url =
                                                                                     "(?:(https?)://([^s<]+)|(www.[^s<]+?.[^s<]+))(?<![.,:])";
                                                                                 const str = e.News.replace(
@@ -455,6 +458,9 @@ class Home extends Component {
                                                                                 );
                                                                                 return (
                                                                                     <p
+                                                                                        key={
+                                                                                            i
+                                                                                        }
                                                                                         className="news-paragraph"
                                                                                         style={{
                                                                                             textAlign:
