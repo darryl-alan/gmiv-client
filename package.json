@@ -12,6 +12,7 @@
     "@progress/kendo-react-intl": "^2.10.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
+    "joi-browser": "^13.4.0",
     "jwt-decode": "^2.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
