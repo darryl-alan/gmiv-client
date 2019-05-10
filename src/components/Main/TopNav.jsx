@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactTooltip from "react-tooltip";
 import { Link } from "react-router-dom";
 import Auth from "../common/Auth";
 import http from "../common/http";
@@ -44,6 +45,7 @@ class TopNav extends Component {
                 role="navigation"
                 style={{ height: "70px" }}
             >
+                <ReactTooltip />
                 <div className="navbar-container container-fluid">
                     <div
                         className="navbar-collapse navbar-collapse-toolbar"
@@ -70,12 +72,12 @@ class TopNav extends Component {
                             Auth.getVendorCode() == "" ? (
                                 <li
                                     className="dropdown tooltip-danger tooltip-scale"
-                                    data-toggle="tooltip"
                                     data-placement="bottom"
                                     data-original-title="DN Error Log"
+                                    data-tip="DN Error"
                                 >
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to="/dnfraud"
                                         data-placement="bottom"
                                         data-original-title="DN Error Log"
                                     >
@@ -102,7 +104,7 @@ class TopNav extends Component {
                                                 )}
                                             </span>
                                         </i>
-                                    </a>
+                                    </Link>
                                 </li>
                             ) : null}
                             <li
