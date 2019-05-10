@@ -1,17 +1,53 @@
 import React, { Component } from "react";
+import Joi from "joi-browser";
 import http from "../common/http";
 import Auth from "../common/Auth";
 const apiUrl = process.env.REACT_APP_API_URL;
 class LoginForm extends Component {
     state = {
+        loginInProgress: false,
+        resetInProgress: false,
         error: "",
-        data: { UserID: "", UserPassword: "" }
+        data: { UserID: "", UserPassword: "" },
+        dataReset: { UserID: "", Email: "" },
+        errors: {},
+        resetErrors: {}
+    };
+
+    schemaLogin = {
+        UserID: Joi.string()
+            .required()
+
+            .max(50)
+            .label("Username"),
+        UserPassword: Joi.string()
+            .required()
+            // .allow(null, "")
+            .label("Password")
+    };
+
+    validate = () => {
+        const result = Joi.validate(this.state.data, this.schemaLogin, {
+            abortEarly: false
+        });
+
+        if (!result.error) return null;
+
+        const errors = {};
+
+        result.error.details.forEach(e => (errors[e.path[0]] = e.message));
+        return errors;
     };
 
     handleSubmit = async e => {
         e.preventDefault();
+        const errors = this.validate();
+        this.setState({ errors: errors || {} });
+        if (errors) return;
+
         const { UserID, UserPassword } = this.state.data;
         let res;
+        this.setState({ loginInProgress: true });
         try {
             res = await http.post(
                 apiUrl + "/index.php?type=api&controller=Login&action=login",
@@ -22,6 +58,7 @@ class LoginForm extends Component {
             if (e.response && e.response.data) {
                 this.setState({ error: e.response.data });
             }
+            this.setState({ loginInProgress: false });
             return;
         }
 
@@ -34,6 +71,7 @@ class LoginForm extends Component {
                 this.setState({ error: e.message });
             }
         }
+        this.setState({ loginInProgress: false });
     };
 
     handleChange = e => {
@@ -66,8 +104,12 @@ class LoginForm extends Component {
                                                 placeholder="Your Username"
                                                 value={this.state.data.UserID}
                                                 onChange={this.handleChange}
-                                                required="required"
                                             />
+                                            {this.state.errors.UserID && (
+                                                <div className="alert alert-danger">
+                                                    {this.state.errors.UserID}
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                     <div className="col-md-12">
@@ -78,36 +120,43 @@ class LoginForm extends Component {
                                                 name="UserPassword"
                                                 id="UserPassword"
                                                 placeholder="Your Password"
-                                                required="required"
                                                 value={
                                                     this.state.data.UserPassword
                                                 }
                                                 onChange={this.handleChange}
                                             />
+                                            {this.state.errors.UserPassword && (
+                                                <div className="alert alert-danger">
+                                                    {
+                                                        this.state.errors
+                                                            .UserPassword
+                                                    }
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
-                                    {this.state.error ? (
-                                        <React.Fragment>
-                                            <br />
-                                            <div className="col-xs-12">
-                                                <div className="form-control">
-                                                    {this.state.error}
-                                                </div>
-                                            </div>
-                                        </React.Fragment>
-                                    ) : null}
                                 </div>
                                 <div className="row">
                                     <div className="col-md-12">
                                         <button
                                             type="submit"
                                             className="btn btn-4 btn-block"
-                                            name="btnBooking"
-                                            id="btnBbooking"
-                                            value="SIGN-IN"
+                                            disabled={
+                                                this.state.loginInProgress
+                                            }
                                         >
                                             LOGIN
                                         </button>
+                                        {this.state.error && (
+                                            <div
+                                                className="alert alert-danger"
+                                                style={{
+                                                    marginTop: "10px"
+                                                }}
+                                            >
+                                                {this.state.error}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </form>

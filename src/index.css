@@ -401,3 +401,7 @@ a.widget {
 .widget.widget-shadow {
     color: white !important;
 }
+
+body.login-page .alert.alert-danger {
+    padding-left: 12px !important;
+}
