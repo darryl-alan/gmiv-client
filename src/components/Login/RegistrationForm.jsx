@@ -35,7 +35,7 @@ class RegistrationForm extends Component {
             .required()
             .max(50),
         Email: Joi.string()
-            .allow(null, "")
+            .required()
             .email({ minDomainAtoms: 1 })
             .max(100),
         Job_Title: Joi.string()
@@ -302,8 +302,6 @@ class RegistrationForm extends Component {
                                             <button
                                                 type="submit"
                                                 className="btn btn-4 btn-block"
-                                                name="btnBooking"
-                                                id="FIN_btnSubmit"
                                                 disabled={
                                                     this.state.ajaxInProgress
                                                 }
