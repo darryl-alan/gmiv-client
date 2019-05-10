@@ -76,7 +76,7 @@ class RegistrationForm extends Component {
         this.setState({ errors: errors || {} });
         if (errors) return;
 
-        this.setState({ ajaxInProgress: true });
+        this.setState({ ajaxInProgress: true, error: "" });
         // call server
         try {
             const res = await http.post(

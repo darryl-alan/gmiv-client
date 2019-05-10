@@ -47,7 +47,7 @@ class LoginForm extends Component {
 
         const { UserID, UserPassword } = this.state.data;
         let res;
-        this.setState({ loginInProgress: true });
+        this.setState({ loginInProgress: true, error: "" });
         try {
             res = await http.post(
                 apiUrl + "/index.php?type=api&controller=Login&action=login",
