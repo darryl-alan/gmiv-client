@@ -1,41 +1,26 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Auth from "../common/Auth";
+import http from "../common/http";
 import FakeLink from "../common/FakeLink";
 import avatar from "../../asset_theme/global/portraits/person.png";
 import loadingImg from "../../asset/KendoUI/styles/Default/loading-image.gif";
+const apiUrl = process.env.REACT_APP_API_URL;
 class TopNav extends Component {
-    state = { dropdownOpen: false };
+    state = { dropdownOpen: false, data: {} };
     componentDidMount() {
         this.loadNotifications();
     }
 
-    loadNotifications = () => {
-        // TODO
-        // $(function(){
-        // 	var $countDNError = $("#countDNError");
-        // 	var $countCertificate = $("#countCertificate");
-        // 	$.ajax({
-        // 		method: 'GET',
-        // 		url: <?= json_encode('index.php?' . encryptQS('type=api&controller=Home&action=read')) ?>,
-        // 		dataType: 'text',
-        // 		data: {}
-        // 	}).done(function( data, textStatus, jqXHR ) {
-        // 		try{
-        // 			data = JSON.parse(data);
-        // 		}
-        // 		catch(e){
-        // 			swal('Error', data, 'error');
-        // 			console.log(jqXHR, e);
-        // 			return;
-        // 		}
-        // 		$countDNError.html(data.DNError);
-        // 		$countCertificate.html(data.Certificate);
-        // 	}).fail(function( jqXHR, textStatus, errorThrown ) {
-        // 		swal('Error', errorThrown + (jqXHR.responseText !== '' ? ': ' + jqXHR.responseText : ''), 'error');
-        // 		console.log(jqXHR);
-        // 	});
-        // });
+    loadNotifications = async () => {
+        try {
+            const res = await http.post(
+                apiUrl + "/index.php?type=api&controller=Home&action=read",
+                {},
+                "json"
+            );
+            this.setState({ data: res.data });
+        } catch (e) {}
     };
 
     handleToggleDropDown = e => {
@@ -106,13 +91,15 @@ class TopNav extends Component {
                                                 className="badge badge-warning up"
                                                 id="countDNError"
                                             >
-                                                <img
-                                                    src={loadingImg}
-                                                    style={{
-                                                        width: "16px",
-                                                        height: "16px"
-                                                    }}
-                                                />
+                                                {this.state.data.DNError || (
+                                                    <img
+                                                        src={loadingImg}
+                                                        style={{
+                                                            width: "16px",
+                                                            height: "16px"
+                                                        }}
+                                                    />
+                                                )}
                                             </span>
                                         </i>
                                     </a>

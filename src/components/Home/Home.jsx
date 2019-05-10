@@ -23,7 +23,7 @@ const apiUrl = process.env.REACT_APP_API_URL;
 class Home extends Component {
     state = {
         news: [],
-        EFIN_CURRENT: [],
+        currentData: {},
         chartData: []
     };
 
@@ -32,7 +32,6 @@ class Home extends Component {
     }
 
     loadNewsAndData = async () => {
-        // todo
         try {
             const res = await http.post(
                 apiUrl +
@@ -40,7 +39,6 @@ class Home extends Component {
                 {},
                 "json"
             );
-            console.log(res);
 
             const EFIN_CHART = res.data.EFIN_CHART;
             const chartData = EFIN_CHART.months.map((month, index) => {
@@ -54,9 +52,9 @@ class Home extends Component {
                 };
             });
 
-            console.log(chartData);
-
-            this.setState({ chartData });
+            const currentData = res.data.EFIN_CURRENT;
+            const news = res.data.NEWS;
+            this.setState({ chartData, currentData, news });
         } catch (e) {}
     };
 
@@ -81,13 +79,15 @@ class Home extends Component {
                                         className="pull-right font-size-20"
                                         id="DN_Ready"
                                     >
-                                        <img
-                                            src={loadingImg}
-                                            style={{
-                                                width: "28px",
-                                                height: "28px"
-                                            }}
-                                        />
+                                        {this.state.currentData.DNReady || (
+                                            <img
+                                                src={loadingImg}
+                                                style={{
+                                                    width: "28px",
+                                                    height: "28px"
+                                                }}
+                                            />
+                                        )}
                                     </span>
                                 </div>
                             </div>
@@ -112,13 +112,16 @@ class Home extends Component {
                                         className="pull-right font-size-20"
                                         id="Inv_Certified"
                                     >
-                                        <img
-                                            src={loadingImg}
-                                            style={{
-                                                width: "28px",
-                                                height: "28px"
-                                            }}
-                                        />
+                                        {this.state.currentData
+                                            .InvCertified || (
+                                            <img
+                                                src={loadingImg}
+                                                style={{
+                                                    width: "28px",
+                                                    height: "28px"
+                                                }}
+                                            />
+                                        )}
                                     </span>
                                 </div>
                             </div>
@@ -143,13 +146,15 @@ class Home extends Component {
                                         className="pull-right font-size-20"
                                         id="Inv_OnHold"
                                     >
-                                        <img
-                                            src={loadingImg}
-                                            style={{
-                                                width: "28px",
-                                                height: "28px"
-                                            }}
-                                        />
+                                        {this.state.currentData.InvOnHold || (
+                                            <img
+                                                src={loadingImg}
+                                                style={{
+                                                    width: "28px",
+                                                    height: "28px"
+                                                }}
+                                            />
+                                        )}
                                     </span>
                                 </div>
                             </div>
@@ -174,13 +179,15 @@ class Home extends Component {
                                         className="pull-right font-size-20"
                                         id="Inv_Approved"
                                     >
-                                        <img
-                                            src={loadingImg}
-                                            style={{
-                                                width: "28px",
-                                                height: "28px"
-                                            }}
-                                        />
+                                        {this.state.currentData.InvApproved || (
+                                            <img
+                                                src={loadingImg}
+                                                style={{
+                                                    width: "28px",
+                                                    height: "28px"
+                                                }}
+                                            />
+                                        )}
                                     </span>
                                 </div>
                             </div>
@@ -219,13 +226,15 @@ class Home extends Component {
                                     className="pull-right font-size-20"
                                     id="Paid"
                                 >
-                                    <img
-                                        src={loadingImg}
-                                        style={{
-                                            width: "28px",
-                                            height: "28px"
-                                        }}
-                                    />
+                                    {this.state.currentData.Paid || (
+                                        <img
+                                            src={loadingImg}
+                                            style={{
+                                                width: "28px",
+                                                height: "28px"
+                                            }}
+                                        />
+                                    )}
                                 </span>
                             </div>
                         </div>
@@ -436,16 +445,20 @@ class Home extends Component {
                                                                         {this.state.news.map(
                                                                             e => {
                                                                                 const url =
-                                                                                    "~(?:(https?)://([^s<]+)|(www.[^s<]+?.[^s<]+))(?<![.,:])~i";
+                                                                                    "(?:(https?)://([^s<]+)|(www.[^s<]+?.[^s<]+))(?<![.,:])";
                                                                                 const str = e.News.replace(
                                                                                     new RegExp(
                                                                                         url,
-                                                                                        '<a href="$0" target="_blank" title="$0">$0</a>'
-                                                                                    )
+                                                                                        "i"
+                                                                                    ),
+                                                                                    '<a href="$0" target="_blank" title="$0">$0</a>'
                                                                                 );
                                                                                 return (
                                                                                     <p
+                                                                                        className="news-paragraph"
                                                                                         style={{
+                                                                                            textAlign:
+                                                                                                "left",
                                                                                             paddingRight:
                                                                                                 "20px"
                                                                                         }}
@@ -486,7 +499,6 @@ class Home extends Component {
                                                                         )
                                                                     }
                                                                 >
-                                                                    {/* todo */}
                                                                     <i
                                                                         className="icon md-collection-bookmark"
                                                                         aria-hidden="true"
