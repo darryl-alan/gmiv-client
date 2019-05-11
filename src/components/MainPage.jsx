@@ -34,23 +34,32 @@ import "../asset_theme/global/vendor/editable-table/editable-table.css";
 import "../asset_theme/global/vendor/jquery-selective/jquery-selective.css";
 import "../asset_theme/center/assets/examples/css/forms/masks.css";
 import "../asset_theme/global/css/bootstrap-extend.min.css";
+import MyAccount from "./MyAccount";
 
 class MainPage extends Component {
-  state = {};
-  render() {
-    document.body.className = document.body.className.replace("login-page", ""); // to fix the login page CSS clashing with the rest
-    return (
-      <React.Fragment>
-        <TopNav />
-        <div id="content">
-          <Switch>
-            <ProtectedRoute path="/" exact component={Home} />
-          </Switch>
-        </div>
-        <Menu location={this.props.location} />
-      </React.Fragment>
-    );
-  }
+    state = {};
+    render() {
+        document.body.className = document.body.className.replace(
+            "login-page",
+            ""
+        ); // to fix the login page CSS clashing with the rest
+        return (
+            <React.Fragment>
+                <TopNav />
+                <div id="content">
+                    <Switch>
+                        <ProtectedRoute path="/" exact component={Home} />
+                        <ProtectedRoute
+                            path="/myaccount"
+                            exact
+                            component={MyAccount}
+                        />
+                    </Switch>
+                </div>
+                <Menu location={this.props.location} />
+            </React.Fragment>
+        );
+    }
 }
 
 export default MainPage;
