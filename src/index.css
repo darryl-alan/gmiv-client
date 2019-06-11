@@ -406,3 +406,23 @@ body:not(.login-page) .alert.alert-danger {
 .k-grid td {
     white-space: nowrap;
 }
+
+.modal-backdrop.fade.show {
+    opacity: 0.5;
+}
+
+.fade.modal.show {
+    opacity: 1;
+}
+
+.modal.fade .modal-dialog {
+    transform: none !important;
+}
+
+.modal-90w {
+    width: 90% !important;
+}
+
+.__react_component_tooltip {
+    z-index: 9999;
+}

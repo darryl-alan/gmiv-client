@@ -36,6 +36,7 @@ import "../asset_theme/center/assets/examples/css/forms/masks.css";
 import "../asset_theme/global/css/bootstrap-extend.min.css";
 import MyAccount from "./MyAccount";
 import DNFraud from "./pages/DNFraud";
+import MasterUserGroup from "./pages/MasterUserGroup";
 
 class MainPage extends Component {
     state = {};
@@ -48,6 +49,7 @@ class MainPage extends Component {
                     <Switch>
                         <ProtectedRoute path="/" exact component={Home} />
                         <ProtectedRoute path="/myaccount" exact component={MyAccount} />
+                        <ProtectedRoute path="/masterusergroup" exact component={MasterUserGroup} />
                         <ProtectedRoute path="/dnfraud" exact component={DNFraud} />
                     </Switch>
                 </div>
