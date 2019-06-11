@@ -29,7 +29,7 @@ class GD extends Component {
         return (
             <ExcelExport
                 data={data}
-                fileName="DNFraud.xlsx"
+                fileName={exportFile || "Export.xlsx"}
                 ref={exporter => {
                     this.excelExport = () => exporter.save();
                 }}
@@ -55,12 +55,12 @@ class GD extends Component {
                     {...rest}
                 >
                     <GridToolbar>
-                        {creatable && (
+                        {(creatable || false) && (
                             <button data-tip="Create" className="k-button k-primary" onClick={onClickCreate}>
                                 <i className="k-icon k-i-plus" />
                             </button>
                         )}
-                        {exportable && (
+                        {(exportable || false) && (
                             <button
                                 data-tip="Export Excel"
                                 className="k-button k-primary"
@@ -69,7 +69,7 @@ class GD extends Component {
                                 <i className="k-icon k-i-file-excel" />
                             </button>
                         )}
-                        {toolbar}
+                        {toolbar || <React.Fragment />}
                         <button className="pull-right k-button k-primary" onClick={read}>
                             <i className="k-icon k-i-reload" />
                         </button>
