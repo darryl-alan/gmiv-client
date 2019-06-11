@@ -39,21 +39,14 @@ axios.interceptors.response.use(
         if (/^<br/.test(response.data)) {
             // this is an uncaught PHP error, throw it
             //   swal("Error", response.data, "error");
-            throw new Error(response);
+            throw new Error(JSON.stringify(response));
         }
 
         // check if the returned data is not valid json, if the expected type is json
-        if (
-            response.config &&
-            response.config.headers &&
-            response.config.headers.Accept
-        ) {
-            if (
-                response.config.headers.Accept === "application/json" &&
-                typeof response.data === "string"
-            ) {
+        if (response.config && response.config.headers && response.config.headers.Accept) {
+            if (response.config.headers.Accept === "application/json" && typeof response.data === "string") {
                 // swal("Error", response.data, "error");
-                throw new Error(response);
+                throw new Error(JSON.stringify(response));
             }
         }
 
@@ -61,10 +54,7 @@ axios.interceptors.response.use(
     },
     function(error) {
         let message = "";
-        if (error.response)
-            message =
-                error.response.data ||
-                getHttpMessage(error.response.status.toString());
+        if (error.response) message = error.response.data || getHttpMessage(error.response.status.toString());
         else if (error.request) message = "No response";
         else message = error.message;
 
@@ -83,8 +73,7 @@ const post = function(url, data, expect = "text", options = {}) {
         options.headers["Content-Type"] = "application/x-www-form-urlencoded";
     }
 
-    options.headers["Accept"] =
-        expect === "json" ? "application/json" : "text/plain";
+    options.headers["Accept"] = expect === "json" ? "application/json" : "text/plain";
 
     let fd;
     if (data instanceof FormData) {
