@@ -16,8 +16,9 @@ class GD extends Component {
 
     render() {
         const {
-            creatable,
             onClickCreate,
+            onClickEdit,
+            onClickDelete,
             exportable,
             exportFile,
             toolbar,
@@ -55,7 +56,7 @@ class GD extends Component {
                     {...rest}
                 >
                     <GridToolbar>
-                        {(creatable || false) && (
+                        {(onClickCreate || false) && (
                             <button data-tip="Create" className="k-button k-primary" onClick={onClickCreate}>
                                 <i className="k-icon k-i-plus" />
                             </button>
@@ -74,6 +75,46 @@ class GD extends Component {
                             <i className="k-icon k-i-reload" />
                         </button>
                     </GridToolbar>
+                    {onClickEdit && (
+                        <Column
+                            width="60px"
+                            cell={props => {
+                                return (
+                                    <td>
+                                        <button
+                                            className="k-button"
+                                            onClick={() => onClickEdit(props.dataItem)}
+                                        >
+                                            <i
+                                                className="fa fa-pencil-square-o"
+                                                style={{ fontSize: "18px", color: "#737373" }}
+                                            />
+                                        </button>
+                                    </td>
+                                );
+                            }}
+                        />
+                    )}
+                    {onClickDelete && (
+                        <Column
+                            width="60px"
+                            cell={props => {
+                                return (
+                                    <td>
+                                        <button
+                                            className="k-button"
+                                            onClick={() => onClickDelete(props.dataItem)}
+                                        >
+                                            <i
+                                                className="fa fa-trash-o"
+                                                style={{ fontSize: "18px", color: "#737373" }}
+                                            />
+                                        </button>
+                                    </td>
+                                );
+                            }}
+                        />
+                    )}
                     {children}
                 </Grid>
             </ExcelExport>

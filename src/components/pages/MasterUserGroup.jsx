@@ -148,6 +148,10 @@ class MasterUserGroup extends Component {
         });
     };
 
+    handleDelete = di => {
+        // todo
+    };
+
     render() {
         return (
             <>
@@ -164,6 +168,15 @@ class MasterUserGroup extends Component {
                             this.setState({ sweetAlert: s });
                         })
                     }
+                    onCancel={
+                        this.state.sweetAlert.onCancel ||
+                        (() => {
+                            const s = { ...this.state.sweetAlert };
+                            s.show = false;
+                            this.setState({ sweetAlert: s });
+                        })
+                    }
+                    showCancelButton={this.state.sweetAlert.showCancelButton || false}
                 />
                 <Modal dialogClassName="modal-90w" show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
@@ -234,31 +247,14 @@ class MasterUserGroup extends Component {
                     <ReactTooltip />
                     <div className="page-content padding-10">
                         <Grid
-                            creatable={true}
                             onClickCreate={this.handleCreate}
+                            onClickEdit={this.handleEdit}
+                            onClickDelete={this.handleDelete}
                             exportable={true}
                             exportFile="MasterUserGroup.xlsx"
                             data={this.state.grid}
                             read={this.loadGrid}
                         >
-                            <Column
-                                width="60px"
-                                cell={props => {
-                                    return (
-                                        <td>
-                                            <button
-                                                className="k-button"
-                                                onClick={() => this.handleEdit(props.dataItem)}
-                                            >
-                                                <i
-                                                    className="fa fa-pencil-square-o"
-                                                    style={{ fontSize: "18px", color: "#737373" }}
-                                                />
-                                            </button>
-                                        </td>
-                                    );
-                                }}
-                            />
                             <Column field="UserGroup_Id" title="UserGroup_Id" width="100px" />
                             <Column field="UserGroup" title="UserGroup" />
                         </Grid>
